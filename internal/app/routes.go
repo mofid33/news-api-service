@@ -1,7 +1,7 @@
 package app
 
 import (
-	"news-api-service/internal/auth"
+	"github.com/amir333/news-api-service/internal/auth"
 
 	"github.com/gin-gonic/gin"
 )

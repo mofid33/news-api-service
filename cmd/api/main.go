@@ -2,9 +2,12 @@ package main
 
 import (
 	"log"
-	"news-api-service/internal/app"
-	"news-api-service/internal/auth"
-	"news-api-service/internal/storage"
+
+	"gorm.io/gorm"
+
+	"github.com/amir333/news-api-service/internal/app"
+	"github.com/amir333/news-api-service/internal/auth"
+	"github.com/amir333/news-api-service/internal/storage"
 
 	"github.com/gin-gonic/gin"
 )

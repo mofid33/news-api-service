@@ -2,9 +2,10 @@ package storage
 
 import (
 	"fmt"
+
+	"github.com/amir333/news-api-service/internal/app"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"news-api-service/internal/app"
 )
 
 func InitDB(dsn string) (*gorm.DB, error) {

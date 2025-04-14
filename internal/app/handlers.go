@@ -2,9 +2,10 @@ package app
 
 import (
 	"net/http"
+
+	"github.com/amir333/news-api-service/internal/auth"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
-	"news-api-service/internal/auth"
 )
 
 type Handler struct {
@@ -69,7 +70,7 @@ func (h *Handler) Login(c *gin.Context) {
 // Article handlers
 func (h *Handler) CreateArticle(c *gin.Context) {
 	userID := c.MustGet("user_id").(uint)
-	
+
 	var article Article
 	if err := c.ShouldBindJSON(&article); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -98,7 +99,7 @@ func (h *Handler) GetArticles(c *gin.Context) {
 
 func (h *Handler) GetArticle(c *gin.Context) {
 	id := c.Param("id")
-	
+
 	var article Article
 	if err := h.DB.Preload("Author").Preload("Tags").First(&article, id).Error; err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Article not found"})
