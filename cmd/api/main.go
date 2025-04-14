@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Initialize database
-	dsn := "host=localhost user=postgres password=postgres dbname=news_api port=5432 sslmode=disable"
+	dsn := "host=localhost user=news_api_user password=Aa@123456 dbname=news_api port=5432 sslmode=disable"
 	db, err := storage.InitDB(dsn)
 	if err != nil {
 		log.Fatalf("Failed to initialize database: %v", err)
